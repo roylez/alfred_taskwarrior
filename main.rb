@@ -60,7 +60,8 @@ if __FILE__ == $0
     t    = TaskWarrior.new
     case cmd
     when 'ls'
-      res = t.export(:pending, args.join(" "))
+      pattern = args.join(" ")
+      res = t.export( pattern =~ /status:/ ? pattern : "#{pattern} status:pending")
       puts tasks_to_items(res)
     end
   end

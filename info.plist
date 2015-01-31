@@ -58,17 +58,25 @@
 				<key>destinationuid</key>
 				<string>33403F78-2600-4581-93E0-AE0E509A7EA8</string>
 				<key>modifiers</key>
-				<integer>0</integer>
+				<integer>262144</integer>
 				<key>modifiersubtext</key>
-				<string></string>
+				<string>Press Ctrl-Enter to mark this task as done</string>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>ED03F635-5F8B-4531-B165-DFF3FB525BEE</string>
+				<key>modifiers</key>
+				<integer>524288</integer>
+				<key>modifiersubtext</key>
+				<string>Press Alt-Enter to delete this task</string>
 			</dict>
 			<dict>
 				<key>destinationuid</key>
 				<string>CB3ABF4D-4EC0-4039-91D4-940587DE927F</string>
 				<key>modifiers</key>
-				<integer>262144</integer>
+				<integer>131072</integer>
 				<key>modifiersubtext</key>
-				<string>Press Ctrl-Enter to modify this task</string>
+				<string>Press Shift-Enter to modify this task</string>
 			</dict>
 		</array>
 		<key>9629EF24-F4E2-40BC-BFC1-F843224E1597</key>
@@ -167,6 +175,69 @@
 		<dict>
 			<key>config</key>
 			<dict>
+				<key>argumenttype</key>
+				<integer>2</integer>
+				<key>keyword</key>
+				<string>t undo</string>
+				<key>subtext</key>
+				<string>Revert an deletion/completion</string>
+				<key>text</key>
+				<string>undo</string>
+				<key>withspace</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.keyword</string>
+			<key>uid</key>
+			<string>85D2B9E6-8AA5-4C01-9136-234490374410</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>escaping</key>
+				<integer>127</integer>
+				<key>script</key>
+				<string>yes | /usr/local/bin/task undo |tail -n1</string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>01E29AD0-1E7B-4108-8C56-C573B38F33D2</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>lastpathcomponent</key>
+				<false/>
+				<key>onlyshowifquerypopulated</key>
+				<false/>
+				<key>output</key>
+				<integer>0</integer>
+				<key>removeextension</key>
+				<false/>
+				<key>sticky</key>
+				<false/>
+				<key>text</key>
+				<string>{query}</string>
+				<key>title</key>
+				<string>TaskWarrior</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.notification</string>
+			<key>uid</key>
+			<string>6B44A8F2-3304-40B2-ABB4-0305B5C5989C</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
 				<key>escaping</key>
 				<integer>127</integer>
 				<key>script</key>
@@ -215,31 +286,6 @@
 			<string>alfred.workflow.input.scriptfilter</string>
 			<key>uid</key>
 			<string>D5637614-EF02-4AB1-9127-73DC258B06B4</string>
-			<key>version</key>
-			<integer>0</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>lastpathcomponent</key>
-				<false/>
-				<key>onlyshowifquerypopulated</key>
-				<false/>
-				<key>output</key>
-				<integer>0</integer>
-				<key>removeextension</key>
-				<false/>
-				<key>sticky</key>
-				<false/>
-				<key>text</key>
-				<string>{query}</string>
-				<key>title</key>
-				<string>TaskWarrior</string>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.output.notification</string>
-			<key>uid</key>
-			<string>6B44A8F2-3304-40B2-ABB4-0305B5C5989C</string>
 			<key>version</key>
 			<integer>0</integer>
 		</dict>
@@ -301,44 +347,6 @@
 			<key>config</key>
 			<dict>
 				<key>argumenttype</key>
-				<integer>2</integer>
-				<key>keyword</key>
-				<string>t undo</string>
-				<key>subtext</key>
-				<string>Revert an deletion/completion</string>
-				<key>text</key>
-				<string>undo</string>
-				<key>withspace</key>
-				<false/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.input.keyword</string>
-			<key>uid</key>
-			<string>85D2B9E6-8AA5-4C01-9136-234490374410</string>
-			<key>version</key>
-			<integer>0</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>escaping</key>
-				<integer>127</integer>
-				<key>script</key>
-				<string>yes | /usr/local/bin/task undo |tail -n1</string>
-				<key>type</key>
-				<integer>0</integer>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.action.script</string>
-			<key>uid</key>
-			<string>01E29AD0-1E7B-4108-8C56-C573B38F33D2</string>
-			<key>version</key>
-			<integer>0</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>argumenttype</key>
 				<integer>1</integer>
 				<key>escaping</key>
 				<integer>127</integer>
@@ -361,7 +369,7 @@ else
     ruby main.rb ls
 fi</string>
 				<key>subtext</key>
-				<string>List tasks matching a pattern, i.e. t ls due:tod</string>
+				<string>List tasks matching a pattern, i.e. t ls due:tod.  Ctrl - do, Alt - del, Shift - Edit</string>
 				<key>title</key>
 				<string>list</string>
 				<key>type</key>
@@ -399,12 +407,12 @@ fi</string>
 		<key>01E29AD0-1E7B-4108-8C56-C573B38F33D2</key>
 		<dict>
 			<key>ypos</key>
-			<real>340</real>
+			<real>120</real>
 		</dict>
 		<key>33403F78-2600-4581-93E0-AE0E509A7EA8</key>
 		<dict>
 			<key>ypos</key>
-			<real>120</real>
+			<real>230</real>
 		</dict>
 		<key>4D148B18-D352-4DD1-B8AD-B8C084B4720B</key>
 		<dict>
@@ -419,17 +427,17 @@ fi</string>
 		<key>85D2B9E6-8AA5-4C01-9136-234490374410</key>
 		<dict>
 			<key>ypos</key>
-			<real>340</real>
+			<real>120</real>
 		</dict>
 		<key>92F95AE8-4EF7-4908-B120-10174D6A5692</key>
 		<dict>
 			<key>ypos</key>
-			<real>460</real>
+			<real>450</real>
 		</dict>
 		<key>9629EF24-F4E2-40BC-BFC1-F843224E1597</key>
 		<dict>
 			<key>ypos</key>
-			<real>230</real>
+			<real>340</real>
 		</dict>
 		<key>998A3EB4-48E1-4437-8D0B-5F20DF11AAEF</key>
 		<dict>
@@ -439,17 +447,17 @@ fi</string>
 		<key>CB3ABF4D-4EC0-4039-91D4-940587DE927F</key>
 		<dict>
 			<key>ypos</key>
-			<real>460</real>
+			<real>450</real>
 		</dict>
 		<key>D5637614-EF02-4AB1-9127-73DC258B06B4</key>
 		<dict>
 			<key>ypos</key>
-			<real>120</real>
+			<real>230</real>
 		</dict>
 		<key>ED03F635-5F8B-4531-B165-DFF3FB525BEE</key>
 		<dict>
 			<key>ypos</key>
-			<real>230</real>
+			<real>340</real>
 		</dict>
 	</dict>
 	<key>webaddress</key>

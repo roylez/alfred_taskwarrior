@@ -14,10 +14,8 @@ class TaskWarrior
     `#{@task} #{cmd}`
   end
 
-  def export(status, pattern = nil)
-    status = status.to_sym
-    return nil unless [:pending, :deleted, :waiting, :completed, :recurring].include? status
-    details = JSON.parse( ("[" + run("#{pattern} status:#{status} export") + "]").force_encoding('UTF-8'),
+  def export(pattern = nil)
+    details = JSON.parse( ("[" + run("#{pattern} export") + "]").force_encoding('UTF-8'),
                          :symbolize_names => true)
     details.each{|i|
       [:entry, :due, :modified, :end].each{|k| i[k] = Time.parse(i[k]) if i.key?(k) }
@@ -29,5 +27,5 @@ end
 if __FILE__ == $0
   t = TaskWarrior.new
 
-  p t.export(:pending)
+  p t.export("status:pending")
 end
