@@ -20,7 +20,7 @@ def tasks_to_items(tasks)
   detail = tasks.collect{|t|
     [{:valid => 'yes', :arg => t[:uuid] },
      {:title => t[:description].gsub("\n", '~'),
-      :subtitle => t[:due] ? "Due: #{t[:due].to_local.strftime("%Y-%m-%d %H:%M")}  " : "" ,
+      :subtitle => t[:due] ? "Due: #{t[:due].to_local.strftime("%Y-%m-%d %H:%M")}  " : "" }
       #:icon => t[:due] ? "task_due_#{due_color t[:due]}.png" : "" }
     ]
   }
