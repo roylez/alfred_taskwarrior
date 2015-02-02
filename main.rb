@@ -20,11 +20,21 @@ def tasks_to_items(tasks)
   detail = tasks.collect{|t|
     [{:valid => 'yes', :arg => t[:uuid] },
      {:title => t[:description].gsub("\n", '~'),
-      :subtitle => t[:due] ? "Due: #{t[:due].to_local.strftime("%Y-%m-%d %H:%M")}  " : "" }
+      :subtitle => t[:due] ? "Due: #{t[:due].to_local.strftime("%Y-%m-%d %H:%M")}  " : "" ,
+      #:icon => t[:due] ? "task_due_#{due_color t[:due]}.png" : "" }
     ]
   }
   AlfredXML.from_list(detail)
 end
+
+#def due_color(due_date)
+  #require 'date'
+  #due = due_date.to_local
+  #today = Date.today.to_time
+  #tomorrow = Date.today.next.to_time
+
+  #due < today ? 1 : ( due < tomorrow ? 2 : 3)
+#end
 
 class Time
   def to_local
