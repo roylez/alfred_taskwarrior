@@ -3,7 +3,7 @@
 Modified from [anazimok/taskwarrior-workflow][1] so that there would not be an
 extra terminal window opened each time a job is completed.
 
-**NOTE**: to make incremental pattern searching work with `t ls` command, at
+**NOTE**: to make incremental pattern searching work with `t list` command, at
 least Alfred 2.6 is required.
 
 [Download this workflow][2]
