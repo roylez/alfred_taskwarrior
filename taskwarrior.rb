@@ -10,17 +10,25 @@ class TaskWarrior
     @task = bin || "/usr/local/bin/task"
   end
 
-  def run(cmd)
-    `#{@task} #{cmd}`
+  def json(pattern)
+    res = _run("#{pattern} export").chomp.force_encoding('utf-8')
+    return nil if res.to_s.empty?
+    res = ( "[" + res.gsub("\n", ",") + "]" )
+    JSON.parse res, :symbolize_names => true
   end
 
   def export(pattern = nil)
-    details = JSON.parse( ("[" + run("#{pattern} export") + "]").force_encoding('UTF-8'),
-                         :symbolize_names => true)
+    details = json pattern
     details.each{|i|
       [:entry, :due, :modified, :end].each{|k| i[k] = Time.parse(i[k]) if i.key?(k) }
       i[:urgency] = i[:urgency].to_f  if i.key? :urgency
     }
+  end
+
+  private
+
+  def _run(cmd)
+    `#{@task} #{cmd}`
   end
 end
 

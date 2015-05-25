@@ -1,6 +1,16 @@
 #!/usr/bin/env ruby
 # coding: utf-8
 #Description:
+#
+# Usage:
+#   alfred = AlfredXML.new
+#   alfred.add_item do
+#     title 'some title'    # required
+#     subtitle 'subtitle'
+#     icon  'some icon'
+#     attribute
+#   end
+#
 
 require 'rexml/document'
 include REXML

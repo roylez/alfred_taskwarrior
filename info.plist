@@ -175,6 +175,23 @@
 		<dict>
 			<key>config</key>
 			<dict>
+				<key>escaping</key>
+				<integer>127</integer>
+				<key>script</key>
+				<string>yes | /usr/local/bin/task undo |tail -n1</string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>01E29AD0-1E7B-4108-8C56-C573B38F33D2</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
 				<key>argumenttype</key>
 				<integer>2</integer>
 				<key>keyword</key>
@@ -190,23 +207,6 @@
 			<string>alfred.workflow.input.keyword</string>
 			<key>uid</key>
 			<string>85D2B9E6-8AA5-4C01-9136-234490374410</string>
-			<key>version</key>
-			<integer>0</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>escaping</key>
-				<integer>127</integer>
-				<key>script</key>
-				<string>yes | /usr/local/bin/task undo |tail -n1</string>
-				<key>type</key>
-				<integer>0</integer>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.action.script</string>
-			<key>uid</key>
-			<string>01E29AD0-1E7B-4108-8C56-C573B38F33D2</string>
 			<key>version</key>
 			<integer>0</integer>
 		</dict>
@@ -232,23 +232,6 @@
 			<string>alfred.workflow.output.notification</string>
 			<key>uid</key>
 			<string>6B44A8F2-3304-40B2-ABB4-0305B5C5989C</string>
-			<key>version</key>
-			<integer>0</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>escaping</key>
-				<integer>127</integer>
-				<key>script</key>
-				<string>/usr/local/bin/task {query} do</string>
-				<key>type</key>
-				<integer>0</integer>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.action.script</string>
-			<key>uid</key>
-			<string>33403F78-2600-4581-93E0-AE0E509A7EA8</string>
 			<key>version</key>
 			<integer>0</integer>
 		</dict>
@@ -286,6 +269,31 @@
 			<string>alfred.workflow.input.scriptfilter</string>
 			<key>uid</key>
 			<string>D5637614-EF02-4AB1-9127-73DC258B06B4</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>escaping</key>
+				<integer>127</integer>
+				<key>script</key>
+				<string>/usr/local/bin/task {query} do</string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>33403F78-2600-4581-93E0-AE0E509A7EA8</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>type</key>
+			<string>alfred.workflow.output.largetype</string>
+			<key>uid</key>
+			<string>E8650F03-727E-4D29-A68C-2E41053F29C6</string>
 			<key>version</key>
 			<integer>0</integer>
 		</dict>
@@ -453,6 +461,11 @@ fi</string>
 		<dict>
 			<key>ypos</key>
 			<real>230</real>
+		</dict>
+		<key>E8650F03-727E-4D29-A68C-2E41053F29C6</key>
+		<dict>
+			<key>ypos</key>
+			<real>290</real>
 		</dict>
 		<key>ED03F635-5F8B-4531-B165-DFF3FB525BEE</key>
 		<dict>
