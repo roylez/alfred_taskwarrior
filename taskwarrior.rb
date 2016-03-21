@@ -13,8 +13,12 @@ class TaskWarrior
   def json(pattern)
     res = _run("#{pattern} export").chomp.force_encoding('utf-8')
     return nil if res.to_s.empty?
-    res = ( "[" + res.gsub("\n", ",") + "]" )
-    JSON.parse res, :symbolize_names => true
+    begin
+      JSON.parse res, :symbolize_names => true
+    rescue
+      res = ( "[" + res.gsub("\n", ",") + "]" )
+      JSON.parse res, :symbolize_names => true
+    end
   end
 
   def export(pattern = nil)
