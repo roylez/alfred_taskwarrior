@@ -18,9 +18,14 @@ end
 
 def tasks_to_items(tasks)
   detail = tasks.collect{|t|
+    subtitle = []
+    subtitle.push("Due:#{t[:due].to_local.relative}") if t[:due]
+    subtitle.push("Project:#{t[:project]}") if t[:project]
+    subtitle.push("Tags:#{t[:tags].join(" ")}") if t[:tags]
+
     [{:valid => 'yes', :arg => t[:uuid] },
      {:title => t[:description].gsub("\n", '~'),
-      :subtitle => t[:due] ? "Due: #{t[:due].to_local.strftime("%Y-%m-%d %H:%M")}  " : "" }
+      :subtitle =>  subtitle.join(" | ")}
       #:icon => t[:due] ? "task_due_#{due_color t[:due]}.png" : "" }
     ]
   }
