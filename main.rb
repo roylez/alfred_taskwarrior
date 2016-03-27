@@ -19,7 +19,11 @@ end
 def tasks_to_items(tasks)
   detail = tasks.collect{|t|
     subtitle = []
-    subtitle.push("Due:#{t[:due].to_local.relative}") if t[:due]
+    if t[:due]
+      due = (t[:due].to_local - Time.now.to_i).to_i
+      due = due < 0 ? "-" + format_vague(-1 * due) : format_vague(due)
+      subtitle.push("Due:#{due}")
+    end
     subtitle.push("Project:#{t[:project]}") if t[:project]
     subtitle.push("Tags:#{t[:tags].join(" ")}") if t[:tags]
 
@@ -41,28 +45,34 @@ end
   #due < today ? 1 : ( due < tomorrow ? 2 : 3)
 #end
 
+def format_vague(period)
+  ##
+  # Shamelessly stolen from
+  # https://git.tasktools.org/projects/TM/repos/task/browse/src/ISO8601.cpp
+  # formatVague()
+  days = period / 86400.0
+
+  case period
+  when 1 .. 59
+    "#{period}s"
+  when 60 .. (3600-1)
+    "#{(period / 60.0).round}min"
+  when 3600 .. (3600*24-1)
+    "#{(period / 3600.0).round}h"
+  when (3600*24) .. (3600*24*14-1)
+    "#{days}d"
+  when (3600*24*14) .. (3600*24*90-1)
+    "#{(days / 7.0).round}w"
+  when (3600*24*90) .. (3600*24*365)
+    "#{(days / 30.0).round}mo"
+  else
+    "#{(days / 365.0).round}y"
+  end
+end
+
 class Time
   def to_local
     Time.at(to_i)
-  end
-
-  def relative
-    start_time = to_i
-    diff_seconds = Time.now.to_i - start_time
-    case diff_seconds
-    when 0 .. 10
-      "several seconds ago"
-    when 11 .. 59
-      "#{diff_seconds} seconds ago"
-    when 60 .. (3600-1)
-      "#{diff_seconds/60} minutes ago"
-    when 3600 .. (3600*24-1)
-      "#{diff_seconds/3600} hours ago"
-    when (3600*24) .. (3600*24*30)
-      "#{diff_seconds/(3600*24)} days ago"
-    else
-      Time.at(start_time).strftime("%Y-%m-%d")
-    end
   end
 end
 
