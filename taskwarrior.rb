@@ -27,6 +27,7 @@ class TaskWarrior
       [:entry, :due, :modified, :end].each{|k| i[k] = Time.parse(i[k]) if i.key?(k) }
       i[:urgency] = i[:urgency].to_f  if i.key? :urgency
     }
+    details.sort!{ |a,b| b[:urgency] <=> a[:urgency] }
   end
 
   private
