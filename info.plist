@@ -178,7 +178,7 @@
 				<key>escaping</key>
 				<integer>127</integer>
 				<key>script</key>
-				<string>yes | /usr/local/bin/task undo |tail -n1</string>
+				<string>/usr/local/bin/task undo rc.confirmation=off rc.verbose=label | tail -n1</string>
 				<key>type</key>
 				<integer>0</integer>
 			</dict>
@@ -340,7 +340,7 @@
 				<key>escaping</key>
 				<integer>127</integer>
 				<key>script</key>
-				<string>yes | /usr/local/bin/task {query} del</string>
+				<string>/usr/local/bin/task {query} del rc.confirmation=off</string>
 				<key>type</key>
 				<integer>0</integer>
 			</dict>
