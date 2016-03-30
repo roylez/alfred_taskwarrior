@@ -60,7 +60,7 @@ def format_vague(period)
   when 3600 .. (3600*24-1)
     "#{(period / 3600.0).round}h"
   when (3600*24) .. (3600*24*14-1)
-    "#{days}d"
+    "#{days.round}d"
   when (3600*24*14) .. (3600*24*90-1)
     "#{(days / 7.0).round}w"
   when (3600*24*90) .. (3600*24*365)
